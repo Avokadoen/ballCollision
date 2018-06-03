@@ -18,7 +18,7 @@ int main()
       balls.push_back(newBall);
     }
 
-    window.setFramerateLimit(60);
+    //window.setFramerateLimit(60);
     sf::Clock clock;
     clock.restart();
 
@@ -34,8 +34,21 @@ int main()
 
         float deltaTime = clock.restart().asSeconds();
         window.clear();
+        for(auto i = balls.begin(); i != balls.end(); i++){
+          for(auto j = i + 1; j !=  balls.end(); j++){
+              if(i->intersects(j->getGlobalBounds())){
+                sf::Vector2f prevIDir = i->getDirection();
+                i->ballCollision(j->getDirection());
+                j->ballCollision(prevIDir);
+
+                //j->update(deltaTime);
+              }
+          }
+          i->update(deltaTime);
+        }
+
         for(auto&& ball : balls){
-          ball.update(deltaTime);
+
           ball.draw(window);
         }
         window.display();

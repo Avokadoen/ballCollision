@@ -16,7 +16,7 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@ $(LIBFLAGS)
 
 clean:
-	rm *.o $(EXECUTABLE)
+	rm source/*.o $(EXECUTABLE)
 
 install:
 	#install -s $(EXECUTABLE) $(BINDIR)
