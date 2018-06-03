@@ -6,6 +6,7 @@
 
 ### To build:
 #### Ubuntu:
+- open terminal and run "sudo apt-get install libsfml-dev" (SFML)
 - pull repo
 - call "make all" from project directory
 - call "./main"
